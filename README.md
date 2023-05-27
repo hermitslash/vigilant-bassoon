@@ -34,3 +34,6 @@ Contact me
 1) @chinmai_d ---> twitter
 2) chinmai.dbharadwaj@gmail.com
 3) Slack - [#tech-sme-discussions](https://shreshtha-workspace.slack.com/archives/C052FC5PH2P)
+
+
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt

@@ -28,16 +28,11 @@ class UserServiceImpl implements UserService {
 
     @Override
     public AppUserDto loggedInUser() {
-        return asyncTaskExecutor.submitCompletable(() -> {
-            Optional<JpaUser> foundUser = authServiceGateway.loggedInUser();
-            if (foundUser.isPresent()) {
-                return foundUser.map(au -> new AppUserDto(au.getUserId(), au.getUsername(),
-                        au.getFirstName(), au.getLastName(), au.getEmailAddress(),
-                        au.getPhoneNumber(), au.getCompanyName(), au.getAuthorities().stream().map(AppRole::getAuthority).collect(Collectors.joining(","))
-                )).get();
-            }
-            return null;
-        }).join();
+        Optional<JpaUser> foundUser = authServiceGateway.loggedInUser();
+        if (foundUser.isPresent()) {
+            return foundUser.map(au -> new AppUserDto(au.getUserId(), au.getUsername(), au.getFirstName(), au.getLastName(), au.getEmailAddress(), au.getPhoneNumber(), au.getCompanyName(), au.getAuthorities().stream().map(AppRole::getAuthority).collect(Collectors.joining(",")))).get();
+        }
+        return null;
     }
 
     @Override

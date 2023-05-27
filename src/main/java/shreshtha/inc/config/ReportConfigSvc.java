@@ -38,7 +38,7 @@ public class ReportConfigSvc {
 
     public File writeContentToFile(byte[] fileContent, String strFileName) throws IOException {
         BufferedOutputStream bos = null;
-        FileOutputStream fos = null;
+        FileOutputStream fos;
         try {
             fos = new FileOutputStream(strFileName);
             bos = new BufferedOutputStream(fos);
