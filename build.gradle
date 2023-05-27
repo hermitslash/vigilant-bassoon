@@ -1,0 +1,51 @@
+buildscript {
+	repositories {
+		maven { url 'https://jaspersoft.jfrog.io/jaspersoft/jaspersoft-repo' }
+	}
+}
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.6'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'shreshtha.inc'
+version = '1.0-M1'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://jaspersoft.jfrog.io/jaspersoft/jaspersoft-repo' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.auth0:java-jwt:4.4.0'
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+	implementation 'net.sf.jasperreports:jasperreports:6.20.4'
+	implementation 'net.sf.jasperreports:jasperreports-fonts:6.20.4'
+	implementation 'io.vertx:vertx-core:4.4.1'
+	implementation 'org.flywaydb:flyway-core'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

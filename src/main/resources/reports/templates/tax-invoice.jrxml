@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="uksmg-invoice" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="94d8c511-aa8b-4046-9310-9cdb931d3cae">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="UKSMG-TaxInvoice" />
+    <style name="Table_TH" mode="Opaque" backcolor="#73B0E6">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000" />
+            <topPen lineWidth="0.5" lineColor="#000000" />
+            <leftPen lineWidth="0.5" lineColor="#000000" />
+            <bottomPen lineWidth="0.5" lineColor="#000000" />
+            <rightPen lineWidth="0.5" lineColor="#000000" />
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#CFDBE6">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000" />
+            <topPen lineWidth="0.5" lineColor="#000000" />
+            <leftPen lineWidth="0.5" lineColor="#000000" />
+            <bottomPen lineWidth="0.5" lineColor="#000000" />
+            <rightPen lineWidth="0.5" lineColor="#000000" />
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000" />
+            <topPen lineWidth="0.5" lineColor="#000000" />
+            <leftPen lineWidth="0.5" lineColor="#000000" />
+            <bottomPen lineWidth="0.5" lineColor="#000000" />
+            <rightPen lineWidth="0.5" lineColor="#000000" />
+        </box>
+    </style>
+    <subDataset name="Particulars" uuid="09d2825e-293d-4eda-9a27-6030e77996e8">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="UKSMG-TaxInvoice" />
+        <queryString language="json">
+            <![CDATA[reportData.particulars]]>
+        </queryString>
+        <field name="amountInfo" class="java.lang.Float">
+            <property name="net.sf.jasperreports.json.field.expression" value="amountInfo" />
+            <fieldDescription><![CDATA[amountInfo]]></fieldDescription>
+        </field>
+        <field name="descriptionOfGoodsOrService" class="java.lang.String">
+            <property name="net.sf.jasperreports.json.field.expression"
+                      value="descriptionOfGoodsOrService" />
+            <fieldDescription><![CDATA[descriptionOfGoodsOrService]]></fieldDescription>
+        </field>
+        <field name="hsnSacCode" class="java.lang.String">
+            <property name="net.sf.jasperreports.json.field.expression" value="hsnSacCode" />
+            <fieldDescription><![CDATA[hsnSacCode]]></fieldDescription>
+        </field>
+        <field name="quantityOrSize" class="java.lang.Integer">
+            <property name="net.sf.jasperreports.json.field.expression" value="quantityOrSize" />
+            <fieldDescription><![CDATA[quantityOrSize]]></fieldDescription>
+        </field>
+        <field name="unitAmountInfo" class="java.lang.Integer">
+            <property name="net.sf.jasperreports.json.field.expression" value="unitAmountInfo" />
+            <fieldDescription><![CDATA[unitAmountInfo]]></fieldDescription>
+        </field>
+        <field name="unitAmountSummary" class="java.lang.String">
+            <property name="net.sf.jasperreports.json.field.expression" value="unitAmountSummary" />
+            <fieldDescription><![CDATA[unitAmountSummary]]></fieldDescription>
+        </field>
+        <field name="units" class="java.lang.Integer">
+            <property name="net.sf.jasperreports.json.field.expression" value="units" />
+            <fieldDescription><![CDATA[units]]></fieldDescription>
+        </field>
+        <field name="gstAmount" class="java.lang.Float">
+            <property name="net.sf.jasperreports.json.field.expression" value="gstAmount" />
+            <fieldDescription><![CDATA[gstAmount]]></fieldDescription>
+        </field>
+    </subDataset>
+    <subDataset name="Gsts" uuid="125702e3-0856-4dfe-87ba-c61d8b9509dc">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="UKSMG-TaxInvoice" />
+        <queryString language="json">
+            <![CDATA[reportData.applicableGsts]]>
+        </queryString>
+        <field name="category" class="java.lang.String">
+            <property name="net.sf.jasperreports.json.field.expression" value="category" />
+            <fieldDescription><![CDATA[category]]></fieldDescription>
+        </field>
+        <field name="percentageApplicable" class="java.lang.Float">
+            <property name="net.sf.jasperreports.json.field.expression" value="percentageApplicable" />
+            <fieldDescription><![CDATA[percentageApplicable]]></fieldDescription>
+        </field>
+        <field name="amountInfo" class="java.lang.Float">
+            <property name="net.sf.jasperreports.json.field.expression" value="amountInfo" />
+            <fieldDescription><![CDATA[amountInfo]]></fieldDescription>
+        </field>
+    </subDataset>
+    <queryString language="json">
+        <![CDATA[reportData]]>
+    </queryString>
+    <field name="invoiceNo" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="invoiceNo" />
+        <fieldDescription><![CDATA[invoiceNo]]></fieldDescription>
+    </field>
+    <field name="accountNo" class="java.lang.Long">
+        <property name="net.sf.jasperreports.json.field.expression" value="accountNo" />
+        <fieldDescription><![CDATA[accountNo]]></fieldDescription>
+    </field>
+    <field name="bankName" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="bankName" />
+        <fieldDescription><![CDATA[bankName]]></fieldDescription>
+    </field>
+    <field name="branchName" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="branchName" />
+        <fieldDescription><![CDATA[branchName]]></fieldDescription>
+    </field>
+    <field name="downloadedAt" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="downloadedAt" />
+        <fieldDescription><![CDATA[downloadedAt]]></fieldDescription>
+    </field>
+    <field name="posCity" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="posCity" />
+        <fieldDescription><![CDATA[posCity]]></fieldDescription>
+    </field>
+    <field name="posState" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="posState" />
+        <fieldDescription><![CDATA[posState]]></fieldDescription>
+    </field>
+    <field name="taxPayableUnderReverseCharge" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression"
+                  value="taxPayableUnderReverseCharge" />
+        <fieldDescription><![CDATA[taxPayableUnderReverseCharge]]></fieldDescription>
+    </field>
+    <field name="amountChargeable" class="java.lang.Float">
+        <property name="net.sf.jasperreports.json.field.expression" value="amountChargeable" />
+        <fieldDescription><![CDATA[amountChargeable]]></fieldDescription>
+    </field>
+    <field name="amountChargeableInWords" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="amountChargeableInWords" />
+        <fieldDescription><![CDATA[amountChargeableInWords]]></fieldDescription>
+    </field>
+    <field name="dateOfSupply" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="dateOfSupply" />
+        <fieldDescription><![CDATA[dateOfSupply]]></fieldDescription>
+    </field>
+    <field name="totalTaxableValue" class="java.lang.Integer">
+        <property name="net.sf.jasperreports.json.field.expression" value="totalTaxableValue" />
+        <fieldDescription><![CDATA[totalTaxableValue]]></fieldDescription>
+    </field>
+    <field name="isPaid" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="isPaid" />
+        <fieldDescription><![CDATA[isPaid]]></fieldDescription>
+    </field>
+    <field name="poNo" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="poNo" />
+        <fieldDescription><![CDATA[poNo]]></fieldDescription>
+    </field>
+    <field name="isPrintAllowed" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="isPrintAllowed" />
+        <fieldDescription><![CDATA[isPrintAllowed]]></fieldDescription>
+    </field>
+    <field name="currentDate" class="java.sql.Date">
+        <property name="net.sf.jasperreports.json.field.expression" value="currentDate" />
+        <fieldDescription><![CDATA[currentDate]]></fieldDescription>
+    </field>
+    <field name="addressLine" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="addressLine" />
+        <fieldDescription><![CDATA[addressLine]]></fieldDescription>
+    </field>
+    <field name="companyName" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="companyName" />
+        <fieldDescription><![CDATA[companyName]]></fieldDescription>
+    </field>
+    <field name="emailAddress" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="emailAddress" />
+        <fieldDescription><![CDATA[emailAddress]]></fieldDescription>
+    </field>
+    <field name="gstNo" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="gstNo" />
+        <fieldDescription><![CDATA[gstNo]]></fieldDescription>
+    </field>
+    <field name="panNo" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="panNo" />
+        <fieldDescription><![CDATA[panNo]]></fieldDescription>
+    </field>
+    <field name="phoneNumber" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="phoneNumber" />
+        <fieldDescription><![CDATA[phoneNumber]]></fieldDescription>
+    </field>
+    <field name="pinCode" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="pinCode" />
+        <fieldDescription><![CDATA[pinCode]]></fieldDescription>
+    </field>
+    <field name="billingAddressLine" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingAddressLine" />
+        <fieldDescription><![CDATA[billingAddressLine]]></fieldDescription>
+    </field>
+    <field name="billingCompanyName" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingCompanyName" />
+        <fieldDescription><![CDATA[billingCompanyName]]></fieldDescription>
+    </field>
+    <field name="billingEmailAddress" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingEmailAddress" />
+        <fieldDescription><![CDATA[billingEmailAddress]]></fieldDescription>
+    </field>
+    <field name="billingGstNo" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingGstNo" />
+        <fieldDescription><![CDATA[billingGstNo]]></fieldDescription>
+    </field>
+    <field name="billingPanNo" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingPanNo" />
+        <fieldDescription><![CDATA[billingPanNo]]></fieldDescription>
+    </field>
+    <field name="billingPhoneNumber" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingPhoneNumber" />
+        <fieldDescription><![CDATA[billingPhoneNumber]]></fieldDescription>
+    </field>
+    <field name="billingPinCode" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="billingPinCode" />
+        <fieldDescription><![CDATA[billingPinCode]]></fieldDescription>
+    </field>
+    <field name="applicableGsts" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="applicableGsts" />
+        <fieldDescription><![CDATA[applicableGsts]]></fieldDescription>
+    </field>
+    <field name="particulars" class="java.lang.String">
+        <property name="net.sf.jasperreports.json.field.expression" value="particulars" />
+        <fieldDescription><![CDATA[particulars]]></fieldDescription>
+    </field>
+    <field name="ifscCode" class="java.lang.String" />
+    <group name="invoiceNo">
+        <groupExpression><![CDATA[$F{invoiceNo}]]></groupExpression>
+    </group>
+    <background>
+        <band splitType="Stretch" />
+    </background>
+    <title>
+        <band height="94" splitType="Stretch">
+            <image>
+                <reportElement x="0" y="0" width="80" height="70"
+                               uuid="9ecd9915-0f37-49bf-b7b2-d404a416ff58" />
+                <imageExpression><![CDATA["reports/templates/uksmg/assets/ukadvertisers.png"]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement isPrintRepeatedValues="false" x="450" y="43" width="105" height="17"
+                               uuid="6e241b7b-27c3-40c1-90dd-7d3218f95345" />
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{gstNo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="450" y="60" width="105" height="17"
+                               uuid="31623620-6708-40bf-bdd3-380052b80dfe">
+                    <property name="com.jaspersoft.studio.unit.height" value="px" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{panNo}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement isPrintRepeatedValues="false" x="450" y="25" width="105" height="17"
+                               uuid="6e241b7b-27c3-40c1-90dd-7d3218f95345">
+                    <property name="com.jaspersoft.studio.unit.y" value="px" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <textFieldExpression><![CDATA[$F{invoiceNo}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="410" y="25" width="100" height="17"
+                               uuid="c832c055-2c9e-44c5-83bd-bad50391af79">
+                    <property name="com.jaspersoft.studio.unit.height" value="px" />
+                    <property name="com.jaspersoft.studio.unit.y" value="px" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <text><![CDATA[InvNo: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="410" y="43" width="100" height="17"
+                               uuid="c832c055-2c9e-44c5-83bd-bad50391af79">
+                    <property name="com.jaspersoft.studio.unit.height" value="px" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <text><![CDATA[GSTIN: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="410" y="60" width="100" height="17"
+                               uuid="98ac74b8-3ae1-4fdb-b0d5-a486c0b47671">
+                    <property name="com.jaspersoft.studio.unit.height" value="px" />
+                </reportElement>
+                <textElement verticalAlignment="Middle" />
+                <text><![CDATA[PAN: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="140" height="30" forecolor="#B8100D"
+                               uuid="d00b7388-21d4-4e9f-b6c7-78bb7021af57" />
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="DejaVu Serif" size="20" />
+                </textElement>
+                <text><![CDATA[Tax Invoice]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="90" y="30" width="60" height="14"
+                               uuid="95b0a2d6-127a-44ba-8015-fd62c0cccb14">
+                    <printWhenExpression><![CDATA[$F{poNo} != null]]></printWhenExpression>
+                </reportElement>
+                <text><![CDATA[PO NO: ]]></text>
+            </staticText>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="151" y="30" width="130" height="20"
+                               uuid="2ddadb1a-09fd-416e-b298-6d68994c4adf">
+                    <printWhenExpression><![CDATA[$F{poNo} != null]]></printWhenExpression>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{poNo}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="283" y="31" width="110" height="17"
+                               uuid="a8501421-1330-408c-ada4-f1ffd5f8727f" />
+                <text><![CDATA[Place of supply]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="283" y="48" width="110" height="24"
+                               uuid="959c3ec5-4a4d-4275-82e5-ba93560312a8" />
+                <textFieldExpression><![CDATA[$F{posCity}+"/"+$F{posState}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="100">
+            <property name="com.jaspersoft.studio.unit.height" value="px" />
+            <frame>
+                <reportElement x="0" y="0" width="200" height="95"
+                               uuid="55674ae8-35b1-47f0-aa96-f665bccee3c2">
+                    <property name="com.jaspersoft.studio.unit.height" value="px" />
+                </reportElement>
+                <staticText>
+                    <reportElement x="0" y="-4" width="39" height="17"
+                                   uuid="6500b64a-30c2-4916-853e-7f2cc6187d3c" />
+                    <textElement>
+                        <font size="12" isBold="true" />
+                    </textElement>
+                    <text><![CDATA[From]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="8" width="60" height="17"
+                                   uuid="f262093b-8ce1-4032-890d-4113f2295c89" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Name: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="25" width="60" height="17"
+                                   uuid="118b0ef2-0d22-4107-9d36-0545be705b81" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Address: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="42" width="60" height="17"
+                                   uuid="fd952d42-9381-4a45-bbc4-744b8bc8c085" />
+                    <textElement markup="styled">
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[PinCode: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="60" width="60" height="17"
+                                   uuid="9665b7d8-3e1a-409e-b927-90f8a472b123" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Email: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="77" width="60" height="17"
+                                   uuid="59470cf3-5c8e-470b-8fb7-e74b80f6c34d" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Phone: ]]></text>
+                </staticText>
+                <textField textAdjust="ScaleFont">
+                    <reportElement x="60" y="8" width="140" height="17"
+                                   uuid="feaffdfc-ad1b-496a-b106-921826cad54f" />
+                    <textFieldExpression><![CDATA[$F{companyName}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="ScaleFont">
+                    <reportElement x="60" y="25" width="140" height="17"
+                                   uuid="f5396e19-6bff-46cf-9807-ab4708fca884" />
+                    <textFieldExpression><![CDATA[$F{addressLine}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="ScaleFont">
+                    <reportElement x="60" y="42" width="140" height="17"
+                                   uuid="323b005b-f98e-4ed9-9d0b-14286689fec7" />
+                    <textFieldExpression><![CDATA[$F{pinCode}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="ScaleFont">
+                    <reportElement x="60" y="59" width="140" height="17"
+                                   uuid="e2d90e0d-1695-4dbf-bc26-f1de3a723929" />
+                    <textFieldExpression><![CDATA[$F{emailAddress}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="ScaleFont">
+                    <reportElement x="60" y="76" width="140" height="17"
+                                   uuid="bb4d4533-8077-4eb3-8c73-2d58662cb687" />
+                    <textFieldExpression><![CDATA[$F{phoneNumber}]]></textFieldExpression>
+                </textField>
+            </frame>
+            <frame>
+                <reportElement x="240" y="0" width="315" height="95"
+                               uuid="f0769fca-c73e-4209-8c79-eb74a95cd2f4">
+                    <property name="com.jaspersoft.studio.unit.height" value="px" />
+                </reportElement>
+                <staticText>
+                    <reportElement x="0" y="-5" width="39" height="17"
+                                   uuid="04afe688-d3b5-4278-8d4b-052c16dbfb4b" />
+                    <textElement>
+                        <font size="12" isBold="true" />
+                    </textElement>
+                    <text><![CDATA[To]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="9" width="60" height="17"
+                                   uuid="9aa83822-a136-4614-a95f-5d946f8e9470" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Name: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="26" width="60" height="17"
+                                   uuid="0c523b8e-7ed3-4de6-b84c-6ba8d6b3371d" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Address: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="43" width="60" height="17"
+                                   uuid="95de71a8-a102-4bf3-9333-cc6683f73cfb" />
+                    <textElement markup="styled">
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[PinCode: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="60" width="60" height="17"
+                                   uuid="2f46e67e-4d22-457e-8a57-3d691cf73207" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Email: ]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="0" y="78" width="60" height="17"
+                                   uuid="c1f8a73f-733b-4184-a00c-5e0d255e3134" />
+                    <textElement>
+                        <font size="10" isBold="false" />
+                    </textElement>
+                    <text><![CDATA[Phone: ]]></text>
+                </staticText>
+                <textField textAdjust="StretchHeight">
+                    <reportElement x="60" y="8" width="250" height="17"
+                                   uuid="f05e2de1-16a3-46e1-9fd0-9cb670f247d8" />
+                    <textFieldExpression><![CDATA[$F{billingCompanyName}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="60" y="25" width="250" height="17"
+                                   uuid="243b3332-ccc0-4788-95a0-b75c41f49794" />
+                    <textFieldExpression><![CDATA[$F{billingAddressLine}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="60" y="42" width="140" height="17"
+                                   uuid="44a8feff-249b-4afb-9223-60c28456fd86" />
+                    <textFieldExpression><![CDATA[$F{billingPinCode}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="60" y="59" width="140" height="17"
+                                   uuid="e3cbd18f-23f1-4f18-ab6d-d1e14a39c8c4" />
+                    <textFieldExpression><![CDATA[$F{billingEmailAddress}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="60" y="77" width="140" height="17"
+                                   uuid="d48b792e-b77b-462c-a107-360d56d63c9d" />
+                    <textFieldExpression><![CDATA[$F{billingPhoneNumber}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement x="100" y="-3" width="170" height="12"
+                                   uuid="0ceacf6d-e20b-4024-af79-72f5e638e9c2" />
+                    <textFieldExpression><![CDATA[$F{billingGstNo}]]></textFieldExpression>
+                </textField>
+                <textField textAdjust="StretchHeight">
+                    <reportElement x="210" y="76" width="100" height="17"
+                                   uuid="d7597a6c-d319-44d0-9c14-3050a073ec2e" />
+                    <textFieldExpression><![CDATA[$F{billingPanNo}]]></textFieldExpression>
+                </textField>
+                <staticText>
+                    <reportElement x="210" y="61" width="100" height="15"
+                                   uuid="dc03bbea-bc77-4bda-abe3-08910bd05c8a" />
+                    <text><![CDATA[PAN No]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="60" y="-3" width="40" height="12"
+                                   uuid="95a8db48-7c23-4d7b-bc60-90103425a1c3" />
+                    <text><![CDATA[GSTIN: ]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </pageHeader>
+    <detail>
+        <band height="75" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px" />
+            <componentElement>
+                <reportElement x="34" y="7" width="486" height="60"
+                               uuid="ff34f54e-db81-4be8-b1f2-2aefe1a08cf2">
+                    <property name="com.jaspersoft.studio.layout"
+                              value="com.jaspersoft.studio.editor.layout.VerticalRowLayout" />
+                    <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH" />
+                    <property name="com.jaspersoft.studio.table.style.column_header"
+                              value="Table_CH" />
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD" />
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="Particulars" uuid="67e2eb1e-a75b-47f5-9d8c-3a42c8f8ffe0">
+                        <dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("particulars")]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="69" uuid="995553c6-66e8-48dc-9402-fdbdfa0f2166">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column1" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="870f76ac-fbea-4054-b06c-bb1672f5c19c" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[Description Of Goods Or Service]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField textAdjust="StretchHeight">
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="7ac5b166-572c-4b47-a2b2-7104e73558ff" />
+                                <textElement verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{descriptionOfGoodsOrService}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="70" uuid="3df6307b-b413-4c9a-8eb5-e11d21fac237">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column2" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="70" height="30"
+                                               uuid="22408b29-d8e5-4669-897c-0acbb71f3d9d" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[HSN SAC Code]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="70" height="30"
+                                               uuid="82e6e1ec-a663-48bf-b080-4c82f8e7158f" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{hsnSacCode}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="69" uuid="0634b9f7-8e98-451d-9b10-a0e17d239282">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column3" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="204cd8c3-8099-44b0-9677-8110520f081c" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[Quantity/Size]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="141b2d33-1368-4524-8395-a74574c53f18" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{quantityOrSize}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="69" uuid="71063652-5cca-4123-a4c1-168632b3f787">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column4" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="a54f70f2-90cd-44a7-8263-6dcb49e5d8b2" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[Unit Amount]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="e8d6ee6f-48c9-48f3-8794-8e9f6b6522f8" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{unitAmountInfo}+" "+$F{unitAmountSummary}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="69" uuid="17f94540-c87c-4792-b520-21686c7ce751">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column5" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="c3ac74fd-c923-43b5-94da-93d2a0306d53" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[GST(CGST+SGST)]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="69" height="30"
+                                               uuid="4636e341-aa24-441d-a2cb-b68994a31c94" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{gstAmount}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="70" uuid="0e463535-bec1-436d-9b98-123dc9b6c1a9">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column6" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="70" height="30"
+                                               uuid="8e438d69-1bad-4f77-b17b-33739d069cb0" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[Units]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="70" height="30"
+                                               uuid="3c8f705c-c097-4331-af55-92bbe9d07a79" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{units}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="70" uuid="f30cda9f-8d10-476e-b716-e2e5570cfb23">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column7" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="70" height="30"
+                                               uuid="632b41b4-4732-44cb-ae5e-261f6782b01a" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <text><![CDATA[Taxable Amount]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="70" height="30"
+                                               uuid="22aa8fb8-a574-4399-9227-eff6cb388279" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font size="8" />
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{amountInfo}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
+    </detail>
+    <lastPageFooter>
+        <band height="250">
+            <property name="com.jaspersoft.studio.unit.height" value="px" />
+            <staticText>
+                <reportElement x="380" y="154" width="165" height="32"
+                               uuid="5e938647-f103-47ae-8029-b21d8ac0ddeb" />
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="Gentium Book Basic" size="12" isBold="false" isItalic="false"
+                          isUnderline="true" />
+                </textElement>
+                <text><![CDATA[Proprietor (Mr. Uday Kumar)]]></text>
+            </staticText>
+            <rectangle>
+                <reportElement x="380" y="188" width="165" height="50"
+                               uuid="d7aae464-5567-4ae5-8754-97c962679d6d" />
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="170" width="184" height="17"
+                               uuid="73603121-ba71-4dec-90e1-79602167513b" />
+                <textElement>
+                    <font size="12" isBold="true" />
+                </textElement>
+                <text><![CDATA[Bank Details]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="189" width="184" height="50"
+                               uuid="ea2717c6-a72a-4f74-aca7-52484d374459" />
+                <textFieldExpression><![CDATA["Bank Name: "+$F{bankName}+"\nBranch Name: "+$F{branchName}+"\nIFSC Code: "+$F{ifscCode}+"\nAccountNo: "+$F{accountNo}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="125" width="380" height="20"
+                               uuid="9cafaa15-caa7-4277-a479-2357810dc64a" />
+                <textElement>
+                    <font size="12" isItalic="true" />
+                </textElement>
+                <text><![CDATA[Amount chargeable in words]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="0" y="145" width="380" height="24"
+                               uuid="20db9f53-89f7-43f9-9240-560fcd0e9b29" />
+                <textElement>
+                    <font size="12" isItalic="true" />
+                </textElement>
+                <textFieldExpression><![CDATA[$F{amountChargeableInWords}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="437" y="124" width="111" height="30"
+                               uuid="5e836eb2-93a2-4fef-a2b2-6dd5d4814a1e" />
+                <textElement>
+                    <font size="12" isBold="true" isItalic="true" />
+                </textElement>
+                <textFieldExpression><![CDATA[$F{amountChargeable}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="390" y="124" width="40" height="25"
+                               uuid="131b7041-9e1e-446f-8018-b04435afdc9c" />
+                <textElement textAlignment="Right">
+                    <font size="12" isBold="true" isItalic="true" />
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+            <componentElement>
+                <reportElement x="0" y="0" width="555" height="60"
+                               uuid="aaf39077-3152-4051-877c-f18aa3a3ae47">
+                    <property name="com.jaspersoft.studio.layout"
+                              value="com.jaspersoft.studio.editor.layout.VerticalRowLayout" />
+                    <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH" />
+                    <property name="com.jaspersoft.studio.table.style.column_header"
+                              value="Table_CH" />
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD" />
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+                          xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="Gsts" uuid="2e28b399-048a-4ca4-bc5c-877ee916373e">
+                        <dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("applicableGsts")]]></dataSourceExpression>
+                    </datasetRun>
+                    <jr:column width="66" uuid="11c8244e-42cb-4a37-bfcc-069e6191bdeb">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column1" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="66" height="30"
+                                               uuid="25f596ba-06ce-4543-b48b-3d18ece429e3" />
+                                <text><![CDATA[]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="66" height="30"
+                                               uuid="0185c4c8-0fd0-4e16-bf58-5de8dc09729d" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle" />
+                                <textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="66" uuid="f380934b-4007-4c85-b0f8-39e78aa31cdf">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column2" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="66" height="30"
+                                               uuid="05dda952-4904-41e7-8a38-af4b1464b937" />
+                                <textElement textAlignment="Center" verticalAlignment="Bottom" />
+                                <text><![CDATA[GST %]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="66" height="30"
+                                               uuid="3a6aa213-2a71-4fe3-ae3b-faca261e17ce" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle" />
+                                <textFieldExpression><![CDATA[$F{percentageApplicable} + "%"]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="66" uuid="13235073-a8f9-4fed-83d9-9e0f9341c352">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name"
+                                  value="Column3" />
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="66" height="30"
+                                               uuid="23ad9802-4e4d-4c25-9a13-554cd66fcce6" />
+                                <textElement textAlignment="Center" verticalAlignment="Bottom" />
+                                <text><![CDATA[Amount]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="66" height="30"
+                                               uuid="9fc03067-b059-4167-9429-2701bfebad19" />
+                                <textElement textAlignment="Center" verticalAlignment="Middle" />
+                                <textFieldExpression><![CDATA[$F{amountInfo}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
+    </lastPageFooter>
+</jasperReport>

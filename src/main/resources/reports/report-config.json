@@ -1,0 +1,31 @@
+{
+  "reports": [
+    {
+      "label": "Tax Invoice",
+      "title": "TAX_INVOICE",
+      "reportTitle": "UKSMG_TAX_INVOICE",
+      "customerName": "uksmg",
+      "templatePath": "reports/templates/tax-invoice.jrxml",
+      "outputFileName": "uksmg-taxinvoice",
+      "reportType": "application/pdf"
+    },
+    {
+      "label": "Receipt",
+      "title": "RECEIPT",
+      "reportTitle": "SG_RECEIPT",
+      "customerName": "shreegraphics",
+      "templatePath": "reports/templates/sg-receipt.jrxml",
+      "outputFileName": "sgreceipt",
+      "reportType": "application/pdf"
+    },
+    {
+      "label": "Voucher",
+      "title": "VOUCHER",
+      "reportTitle": "SG_VOUCHER",
+      "customerName": "shreegraphics",
+      "templatePath": "reports/templates/sg-voucher.jrxml",
+      "outputFileName": "sg-voucher",
+      "reportType": "application/pdf"
+    }
+  ]
+}

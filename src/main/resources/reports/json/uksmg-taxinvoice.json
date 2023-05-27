@@ -1,0 +1,45 @@
+{
+  "accountNo": "21430200000004",
+  "bankName": "UCO Bank",
+  "branchName": "Shimoga Branch",
+  "downloadedAt": null,
+  "ifscCode": "UCBA0002143",
+  "posCity": "Shimoga",
+  "posState": "Karnataka",
+  "taxPayableUnderReverseCharge": "NO",
+  "amountChargeable": 0,
+  "amountChargeableInWords": "Zero",
+  "totalTaxableValue": 0,
+  "isPaid": "NO",
+  "isPrintAllowed": false,
+  "applicableGsts": [
+    {
+      "amountInfo": 0,
+      "category": "IGST",
+      "percentageApplicable": 0
+    },
+    {
+      "amountInfo": 0,
+      "category": "CGST",
+      "percentageApplicable": 9
+    },
+    {
+      "amountInfo": 0,
+      "category": "SGST",
+      "percentageApplicable": 9
+    }
+  ],
+  "particulars": [],
+  "companyInfos": [
+    {
+      "addressLine": "BJP Office Complex",
+      "category": "BILL_BY",
+      "companyName": "UK Advertisers",
+      "emailAddress": "ukadsmg@gmail.com",
+      "gstNo": "29AAGPU77081ZP",
+      "panNo": "AAGPU7708",
+      "phoneNumber": "9448638133",
+      "pinCode": "577202"
+    }
+  ]
+}

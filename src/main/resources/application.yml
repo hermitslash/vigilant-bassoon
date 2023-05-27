@@ -1,0 +1,155 @@
+logging:
+  level:
+    .: error
+    org.springframework: ERROR
+    shreshtha.inc: ERROR
+
+spring:
+  application:
+    name: reporting-svc
+  jmx:
+    enabled: true
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: DEFERRED
+  flyway:
+    enabled: true
+  devtools:
+    restart:
+      enabled: true
+  task:
+    execution:
+      thread-name-prefix: reporting-svc-task-
+      pool:
+        core-size: 2
+        max-size: 50
+        queue-capacity: 10000
+    scheduling:
+      thread-name-prefix: reporting-svc-scheduling-
+      pool:
+        size: 2
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.id.new_generator_mappings: true
+#      hibernate.connection.provider_disables_autocommit: true
+#      hibernate.cache.use_second_level_cache: true
+#      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      # modify batch size as necessary
+      hibernate.jdbc.batch_size: 25
+      hibernate.order_inserts: true
+      hibernate.order_updates: true
+      hibernate.query.fail_on_pagination_over_collection_fetch: true
+      hibernate.query.in_clause_parameter_padding: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    password: ShreshthaUser1@1234
+    url: jdbc:postgresql://localhost:5432/reportsdb?currentSchema=general
+    username: shuser1
+
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include:
+          [
+            'env',
+            'health',
+            'info',
+            'logfile',
+            'loggers',
+            'prometheus',
+            'threaddump',
+            'flyway',
+          ]
+  endpoint:
+    health:
+      show-details: when_authorized
+      roles: 'ROLE_ADMIN'
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,db
+  info:
+    git:
+      mode: full
+    env:
+      enabled: true
+  metrics:
+    enable:
+      http: true
+      jvm: true
+      logback: true
+      process: true
+      system: true
+    distribution:
+      percentiles-histogram:
+        all: true
+      percentiles:
+        all: 0, 0.5, 0.75, 0.95, 0.99, 1.0
+    tags:
+      application: ${spring.application.name}
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 60m
+
+rsa:
+  privateKey: classpath:certs/generalprk.pem
+  publicKey: classpath:certs/generalpuk.pem
+server:
+  port: 19809
+  shutdown: GRACEFUL
+  compression:
+    enabled: true
+  servlet:
+    session:
+      cookie:
+        http-only: true
+  ssl:
+    key-store: classpath:certs/keystore/keystore.p12
+    key-store-password: Shreshtha@1234
+    key-store-type: PKCS12
+    key-alias: tomcat
+  http2:
+    enabled: true
+application:
+  api-base-path: /api
+  index-file: classpath:static/index.html
+  cors:
+    mapping-path-pattern: ${application.api-base-path}/**
+    allowed-headers: '*'
+    allowed-origins:
+      - http://localhost:80
+      - https://localhost:443
+      - https://localhost:19809
+      - http://localhost:9809
+      - http://localhost:3000
+      - http://3.108.221.229:9809
+      - https://3.108.221.229:19809
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - PATCH
+      - DELETE
+      - HEAD
+      - OPTIONS
+    max-age: 3600
+  reports:
+    configPath: reports/report-config.json
+    initialDataPath: reports/json/uksmg-taxinvoice.json
+    invLength: 7
+http:
+  port: 9809
